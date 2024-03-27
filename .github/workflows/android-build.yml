@@ -1,0 +1,20 @@
+name: android
+on:
+  workflow_dispatch:
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with: 
+          submodules: 'recursive'
+      - name: build
+        run: |
+          cd Source/Android/
+          ./gradlew assembleDebug -Dorg.gradle.java.home=/usr/lib/jvm/temurin-18-jdk-amd64
+      - name: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: dolphin.apk
+          path: Source/Android/app/build/outputs/apk/debug/*.apk
