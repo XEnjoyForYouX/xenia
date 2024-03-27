@@ -11,7 +11,7 @@ jobs:
           submodules: 'recursive'
       - name: build
         run: |
-          cd android/android_studio_project/app
+          cd android/android_studio_project/app/
           ./gradlew assembleDebug -Dorg.gradle.java.home=/usr/lib/jvm/temurin-18-jdk-amd64
       - name: upload
         uses: actions/upload-artifact@v4
