@@ -11,10 +11,10 @@ jobs:
           submodules: 'recursive'
       - name: build
         run: |
-          cd Source/Android/
+          cd android/android_studio_project/app
           ./gradlew assembleDebug -Dorg.gradle.java.home=/usr/lib/jvm/temurin-18-jdk-amd64
       - name: upload
         uses: actions/upload-artifact@v4
         with:
-          name: dolphin.apk
-          path: Source/Android/app/build/outputs/apk/debug/*.apk
+          name: xenia-app.apk
+          path: android/android_studio_project/app/build/outputs/apk/debug/*.apk
